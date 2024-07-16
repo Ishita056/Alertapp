@@ -1,0 +1,61 @@
+﻿@model HelloWorld.Models.Alert
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Alert</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mt-1">
+                <label asp-for="Message" class="control-label"></label>
+                <input asp-for="Message" class="form-control" placeholder="Enter Message" />
+                <span asp-validation-for="Message" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PublishDate" class="control-label"></label>
+                <input asp-for="PublishDate" id="PublishDate" class="form-control" />
+                <span asp-validation-for="PublishDate" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-1">
+                <label asp-for="ExpDate" class="control-label"></label>
+                <input asp-for="ExpDate" id="ExpDate" class="form-control" />
+                <span asp-validation-for="ExpDate" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-1">
+                <label asp-for="Link" class="control-label"></label>
+                <input asp-for="Link" class="form-control" placeholder="Enter Link" />
+                <span asp-validation-for="Link" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-4">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+<script>
+    var publishTime = document.getElementById("PublishDate");
+    var expTime = document.getElementById("ExpDate");
+    let currentTime = new Date();
+    var diff = publishTime - currentTime.getTime();
+
+    function publish(time) {
+        
+
+    }
+    const myTimeout = setTimeout(publish, diff);
+</script>

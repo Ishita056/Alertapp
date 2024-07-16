@@ -1,0 +1,17 @@
+﻿@model HelloWorld.Models.Alert
+
+@{
+    ViewData["Title"] = "AlertBar";
+}
+
+
+<div class="alert-bar">
+    <p><strong>Alert:</strong> This is an important message!</p>
+    <button class="close-btn" onclick="closeAlert()">Close</button>
+</div>
+
+<script>
+    function closeAlert() {
+        document.querySelector('.alert-bar').style.display = 'none';
+    }
+</script>
